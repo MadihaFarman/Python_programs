@@ -1,0 +1,13 @@
+def main():
+    in_file = open('authorNames.txt','r')
+    line_1 = in_file.readline()
+    line_2 = in_file.readline()
+    line_3 = in_file.readline()
+    # line_1 = line_1.rstrip('\n')
+    # line_2 = line_2.rstrip('\n')
+    # line_3 = line_3.rstrip('\n')
+    in_file.close()
+    print(line_1)
+    print(line_2)
+    print(line_3)
+main()

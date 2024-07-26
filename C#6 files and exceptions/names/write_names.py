@@ -1,0 +1,12 @@
+def main():
+    print('Enter names of 3 friends: ')
+    name_1 = input('Friend # 1 : ')
+    name_2 = input('Friend # 2 : ')
+    name_3 = input('Friend # 3 : ')
+    inFile= open('friendsNames.txt','w')
+    inFile.write(name_1 + '\n')
+    inFile.write(name_2 + '\n')
+    inFile.write(name_3 + '\n')
+    inFile.close()
+    print('the names were written to friendsNames.txt')
+main()
