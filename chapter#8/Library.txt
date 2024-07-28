@@ -1,0 +1,78 @@
+// Library.java
+import java.util.ArrayList;
+
+public class Library implements Finance{
+    private String libraryName;
+    private String contactNumber;
+    private ArrayList<Book> books;
+    private double membershipFee;
+  
+    public Library(String libraryName, String contactNumber, ArrayList<Book> books, double membershipFee) {
+        this.libraryName = libraryName;
+        this.contactNumber = contactNumber;
+        this.books = books;
+        this.membershipFee = membershipFee;
+      
+    }
+    
+    
+    public String getLibraryName() {
+        return libraryName;
+    }
+    public void setLibraryName(String libraryName) {
+        this.libraryName = libraryName;
+    }
+    public String getContactNumber() {
+        return contactNumber;
+    }
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
+    }
+    public double getMembershipFee() {
+        return membershipFee;
+    }
+    public void setMembershipFee(double membershipFee) {
+        this.membershipFee = membershipFee;
+    }
+    public void addBook(Book book){
+        if (!books.contains(book)){
+        books.add(book);
+        System.out.println("Book Added!");
+        
+       }
+        else {
+        System.out.println("Book Already present!");}
+      }
+    public void deleteBook(Book book){
+        if (books.contains(book)){
+            books.remove(book);
+           
+        }
+        else{
+            System.out.println("Book Not Present!");
+        }
+        }
+
+       @Override
+       public double calculateDues(){
+        double Total = 0;
+        for (Book book : books){
+            Total += book.calculateDues();
+        }
+        return Total += getMembershipFee();
+       }
+
+       @Override
+       public String toString(){
+        return String.format("%s%n%s : %s%n%s : %s%n%n%s:%n%s%n%s : %d","-----Library Details-----","Library Name",getLibraryName(),"Contact number",getContactNumber(),"Books in Library",getBooks(),"Number of books",books.size());
+       }
+ }
+
+
+  
